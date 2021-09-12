@@ -2,7 +2,7 @@
 
 [![forthebadge made-with-python](http://ForTheBadge.com/images/badges/made-with-python.svg)](https://www.python.org/)
 ![GitHub repo size](https://img.shields.io/github/repo-size/feytus/twitch-feeder?style=for-the-badge&logo=appveyor)
-[![License](https://img.shields.io/github/license/feytus/neptunbot?style=for-the-badge)](https://github.com/feytus/twitch-feeder/blob/master/LICENSE)
+[![License](https://img.shields.io/github/license/feytus/neptunbot?style=for-the-badge)](https://github.com/feytus/twitch-info/blob/master/LICENSE)
 
 
 Get informations about a **streamer** from **twitch.tv** and get **notified on discord**.
