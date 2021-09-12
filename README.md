@@ -1,4 +1,4 @@
-# Twitch Feeder
+# Twitch Informations
 
 [![forthebadge made-with-python](http://ForTheBadge.com/images/badges/made-with-python.svg)](https://www.python.org/)
 ![GitHub repo size](https://img.shields.io/github/repo-size/feytus/twitch-feeder?style=for-the-badge&logo=appveyor)
