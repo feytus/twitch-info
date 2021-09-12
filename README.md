@@ -31,7 +31,7 @@ checking = twitch.check_for_stream(user="<CHANNEL NAME>")
 
 #### Get stream
 
-```json
+```python
 {
     "on_stream": True,
     "display_name": "TheGuill84",
