@@ -23,6 +23,8 @@ setup(
     install_requires=['colorama', 'requests', 'datetime', ''],
     keywords=['python', 'stream', 'twitch'],
     classifiers=[
+        'Development Status :: 4 - Beta,'
+        'Intended Audience :: Developers',
         "Programming Language :: Python :: 3",
         "Operating System :: Unix",
         "Operating System :: MacOS :: MacOS X",
