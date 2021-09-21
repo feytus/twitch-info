@@ -6,6 +6,10 @@
 
 Get informations about a **streamer** from **twitch.tv** and get **notified on discord**.
 
+## Install the package
+
+``pip install twitch-info``
+
 ## Exemple
 
 ```python
