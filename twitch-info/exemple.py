@@ -7,5 +7,5 @@ user_id: int = twitch.get_user_id(user_name="<CHANNEL NAME>")
 
 user_info: dict = twitch.get_stream(user_id=user_id)
 
-is_in_live: bool = twitch.check_for_stream(user="daiko")
+is_in_live: bool = twitch.check_for_stream(user="<CHANNEL NAME>")
 
