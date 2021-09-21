@@ -1,11 +1,14 @@
 # Twitch Informations
 
 [![forthebadge made-with-python](http://ForTheBadge.com/images/badges/made-with-python.svg)](https://www.python.org/)
-![GitHub repo size](https://img.shields.io/github/repo-size/feytus/twitch-feeder?style=for-the-badge&logo=appveyor)
-[![License](https://img.shields.io/github/license/feytus/neptunbot?style=for-the-badge)](https://github.com/feytus/twitch-info/blob/master/LICENSE)
-
+![GitHub repo size](https://img.shields.io/github/repo-size/feytus/twitch-info?style=for-the-badge&logo=appveyor)
+[![License](https://img.shields.io/github/license/feytus/twitch-info?style=for-the-badge)](https://github.com/feytus/twitch-info/blob/master/LICENSE)
 
 Get informations about a **streamer** from **twitch.tv** and get **notified on discord**.
+
+## Install the package
+
+``pip install twitch-info``
 
 ## Exemple
 
@@ -15,21 +18,41 @@ from __init__ import twitch_info
 twitch = twitch_info(client_id="<YOUR CLIENT ID>", 
                     acces_token="<YOUR CLIENT ID>")
 
+user_id: int = twitch.get_user_id(user_name="<CHANNEL NAME>")
 
-user_id = twitch.get_user_id(user_name="<CHANNEL NAME>")
+user_info: dict = twitch.get_stream(user_id=user_id)
 
-user_info = twitch.get_stream(user_id=user_id)
-
-checking = twitch.check_for_stream(user="<CHANNEL NAME>")
+is_in_live: bool = twitch.check_for_stream(user="<CHANNEL NAME>")
 ```
 
-### Output
+### Get user id
 
-#### Check for stream
+**Argument:**
 
-![Image Output](https://i.imgur.com/E3jhT08.png)
+- **user_name**: ***str***
 
-#### Get stream
+**Return : *Int***
+
+``213122``
+
+### Check for stream
+
+**Arguments:**
+
+- **user**: ***str***
+- **webhook_url**: ***str = None***
+
+**Return : *Bool***
+
+``True`` or ``False``
+
+### Get stream
+
+**Argument:**
+
+- **user_id**: ***int***
+
+**Return : *Dict***
 
 ```python
 {
@@ -44,6 +67,6 @@ checking = twitch.check_for_stream(user="<CHANNEL NAME>")
 }
 ```
 
-#### Message on discord
+### Message on discord
 
 ![Image Discord Embed](https://i.imgur.com/Kd6Spvj.png)
