@@ -26,7 +26,7 @@ headers =  {
 user_id: int = get_user_id("<CHANNEL NAME>", acces_token, client_id)
 
 user_info: dict = get_stream(user_id, headers)
-=======
+```
 # Twitch Informations
 
 [![forthebadge made-with-python](http://ForTheBadge.com/images/badges/made-with-python.svg)](https://www.python.org/)
