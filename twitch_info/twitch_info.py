@@ -1,5 +1,5 @@
+from http.client import BAD_REQUEST
 import requests
-from colorama import Fore
 
 def get_user_id(user_name: str, acces_token: str, client_id: str):
     headers = {
@@ -7,15 +7,20 @@ def get_user_id(user_name: str, acces_token: str, client_id: str):
         'Client-ID': client_id,
         'Authorization': 'OAuth ' + acces_token,
     }
+
     response = requests.get(
         'https://api.twitch.tv/kraken/users?login=' + user_name, headers=headers)
-    data = response.json()
+    data: dict = response.json()
+    if "error" in data.keys():
+        return data
+        
     if data == {'_total': 0, 'users': []}:
-        return(Fore.YELLOW,
-             f"{user_name} is not a twitch channel", Fore.RESET)
+        return(f"{user_name} is not a twitch channel")
     return data["users"][0]["_id"]
 
 def get_stream(user_id: int, headers: dict):
+    if 'error' in user_id.keys():
+        return user_id
     response = requests.get(
         'https://api.twitch.tv/kraken/streams/' + user_id, headers=headers)
     data = response.json()
