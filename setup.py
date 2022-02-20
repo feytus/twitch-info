@@ -20,7 +20,7 @@ setup(
     long_description_content_type="text/markdown",
     long_description=long_description,
     packages=find_packages(),
-    install_requires=['colorama', 'requests'],
+    install_requires=['requests'],
     keywords=['python', 'stream', 'twitch', 'channel', 'information', 'info'],
     classifiers=[
         'Development Status :: 4 - Beta',

@@ -1,4 +1,8 @@
 twitch-info/__pycache__
 dist
 twitch_info.egg-info
+<<<<<<< HEAD
 .env
+=======
+.env
+>>>>>>> 69d03afc380892d6eba33d2bc90196014df1b04f

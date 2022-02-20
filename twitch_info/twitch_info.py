@@ -1,4 +1,3 @@
-from http.client import BAD_REQUEST
 import requests
 
 def get_user_id(user_name: str, acces_token: str, client_id: str):
