@@ -1,44 +1,44 @@
 import requests
 
-def get_user_id(user_name: str, acces_token: str, client_id: str):
-    headers = {
-        'Accept': 'application/vnd.twitchtv.v5+json',
-        'Client-ID': client_id,
-        'Authorization': 'OAuth ' + acces_token,
+def get_access_token(client_id: str, client_secret: str):
+    params = {
+        "client_id": client_id,
+        "client_secret": client_secret,
+        "grant_type": "client_credentials"
     }
 
-    response = requests.get(
-        'https://api.twitch.tv/kraken/users?login=' + user_name, headers=headers)
-    data: dict = response.json()
-    if "error" in data.keys():
-        return data
-        
-    if data == {'_total': 0, 'users': []}:
-        return(f"{user_name} is not a twitch channel")
-    return data["users"][0]["_id"]
+    response = requests.post("https://id.twitch.tv/oauth2/token", params=params)
+    access_token = response.json()["access_token"]
 
-def get_stream(user_id: int, headers: dict):
-    if 'error' in user_id.keys():
-        return user_id
-    response = requests.get(
-        'https://api.twitch.tv/kraken/streams/' + user_id, headers=headers)
-    data = response.json()
-    if data == {'stream': None}:
-        data_stream = {
-            "on_stream": False
-        }
-    elif data == {'error': 'Bad Request', 'status': 400, 'message': 'The parameter "id" was malformed: the value must match the regular expression /^[0-9]+$/'}:
-        exit({'error': 'Bad Request', 'status': 400,
-             'message': 'The parameter "id" was malformed: the value must match the regular expression /^[0-9]+$/'})
-    else:
-        data_stream = {
-            "on_stream": True,
-            "display_name": data['stream']['channel']['display_name'],
-            "logo": data['stream']['channel']['logo'],
-            "game": data['stream']['game'],
-            "viewer_count": data['stream']['viewers'],
-            "preview_image": data['stream']['preview']['large'],
-            "title": data['stream']['channel']['status'],
-            "date": data['stream']['created_at'],
-        }
-    return data_stream
+    return access_token
+
+
+def get_user_id(user_name: str, client_id: str, acces_token: str):
+    params = {
+        "login": user_name
+    }
+
+    headers = {
+        "Authorization": f"Bearer {acces_token}",
+        "Client-Id": client_id
+    }
+
+    response = requests.get("https://api.twitch.tv/helix/users", params=params, headers=headers)
+
+    return response.json()["data"][0]['id']
+
+
+def get_stream(user_id: int, client_id: str, acces_token: str):
+    params = {
+        "user_id": user_id
+    }
+
+    headers = {
+        "Authorization": f"Bearer {acces_token}",
+        "Client-Id": client_id
+    }
+
+    response = requests.get("https://api.twitch.tv/helix/streams", params=params, headers=headers)
+    data = response.json()["data"]
+
+    return data[0]
