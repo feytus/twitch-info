@@ -1,6 +1,7 @@
 import requests
 
-def get_access_token(client_id: str, client_secret: str):
+
+def get_access_token(client_id: str, client_secret: str) -> str:
     params = {
         "client_id": client_id,
         "client_secret": client_secret,
@@ -13,7 +14,7 @@ def get_access_token(client_id: str, client_secret: str):
     return access_token
 
 
-def get_user_id(user_name: str, client_id: str, acces_token: str):
+def get_user_id(user_name: str, client_id: str, acces_token: str) -> int:
     params = {
         "login": user_name
     }
@@ -28,7 +29,7 @@ def get_user_id(user_name: str, client_id: str, acces_token: str):
     return response.json()["data"][0]['id']
 
 
-def get_stream(user_id: int, client_id: str, acces_token: str):
+def get_stream(user_id: int, client_id: str, acces_token: str) -> dict:
     params = {
         "user_id": user_id
     }
