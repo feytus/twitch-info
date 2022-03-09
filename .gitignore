@@ -1,5 +1,7 @@
-twitch-info/__pycache__
+twitch-info/__pycache__/
 dist
 twitch_info.egg-info
 .env
 build/
+
+auto-upload.py
