@@ -1,3 +1,8 @@
 from twitch_info.twitch_info import get_stream
 from twitch_info.twitch_info import get_user_id
 from twitch_info.twitch_info import get_access_token
+
+from twitch_info.twitch_info import InvalidClient
+from twitch_info.twitch_info import InvalidOAuthToken
+from twitch_info.twitch_info import InvalidUser
+from twitch_info.twitch_info import ValuesNotMatching
