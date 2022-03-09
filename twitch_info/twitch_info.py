@@ -55,8 +55,11 @@ def get_stream(user_id: int, client_id: str, acces_token: str) -> dict:
     if response.json() == {'error': 'Unauthorized', 'status': 401, 'message': 'Client ID and OAuth token do not match'}:
         raise ValuesNotMatching(response.json()['message']) 
 
-    data = response.json()["data"]
+    if response.json() == {'data': [], 'pagination': {}}:
+        return "This user is not streaming"
 
+    data = response.json()["data"]
+    
     return data[0]
 
 class InvalidUser(Exception):
