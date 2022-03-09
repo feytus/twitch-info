@@ -13,7 +13,7 @@ Get informations about a **streamer** from **twitch.tv**.
 ## Exemple
 
 ```python
-from twitch_info import get_user_id, get_stream
+from twitch_info import get_user_id, get_stream, get_acces_token
 
 # To get client_id and client_secret -> https://youtu.be/JK06TumS6ho
 
