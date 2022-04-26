@@ -1,4 +1,4 @@
-twitch-info/__pycache__/
+twitch_info/__pycache__/
 dist
 twitch_info.egg-info
 .env
